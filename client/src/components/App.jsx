@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import LoadImages from "./LoadImages";
-import DisplayRankings from "./DisplayRankings";
-import SaveRankings from "./SaveRankings";
+
 import OtherRankings from "./OtherRankings";
 
 function App() {
@@ -62,9 +61,8 @@ function App() {
       {pageSelector === 1 && (
         <div>
           <button type="button" onClick={onClick}>Return</button>
-          <OtherRankings />
-          <SaveRankings images={images} />
-          <DisplayRankings images={images} />
+          <OtherRankings images={images} />
+
         </div>
       )}
     </div>
