@@ -15,8 +15,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false })); // support encoded bodies
 
 app.post("/rankings", (req, res) => {
-  console.log(req.query);
-  res.send(req.body);
+  const data = req.body;
+  mongoose.save(data);
+  res.sendStatus(200);
+});
+
+app.get("/rankings", (req, res) => {
+  mongoose.getAllRankings((rankingData) => {
+    res.send(rankingData);
+  });
+});
+
+app.get("/rankings/:name", (req, res) => {
+  const { name } = req.params;
+  mongoose.getRankingByName(name, (data) => {
+    res.send(data[0]);
+  });
 });
 
 app.listen(port, () => {

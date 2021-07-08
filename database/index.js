@@ -11,7 +11,12 @@ db.once("open", () => {
 });
 
 const rankingSchema = mongoose.Schema({
-  results: [{ url: String, rating: Number, index: Number }],
+  name: String,
+  results: [{
+    url: String,
+    rating: Number,
+    index: Number,
+  }],
 
 });
 
@@ -30,7 +35,10 @@ test.save((error) => {
 }); */
 
 const save = (data) => {
-  const ranking = new Ranking(data);
+  const ranking = new Ranking({
+    name: data.name,
+    results: data.results,
+  });
   ranking.save((err) => {
     if (err) {
       console.log(err);
@@ -38,4 +46,24 @@ const save = (data) => {
   });
 };
 
+const getAllRankings = (callback) => {
+  Ranking.find({}, (err, rankingData) => {
+    if (err) {
+      console.log(err);
+    }
+    callback(rankingData);
+  });
+};
+
+const getRankingByName = (name, callback) => {
+  Ranking.find({ name }, (err, data) => {
+    if (err) {
+      console.log(err);
+    }
+    callback(data);
+  });
+};
+
 module.exports.save = save;
+module.exports.getAllRankings = getAllRankings;
+module.exports.getRankingByName = getRankingByName;

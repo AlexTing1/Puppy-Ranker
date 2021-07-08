@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import LoadImages from "./LoadImages";
 import DisplayRankings from "./DisplayRankings";
+import SaveRankings from "./SaveRankings";
+import OtherRankings from "./OtherRankings";
 
 function App() {
   const [images, setImages] = useState([
@@ -60,7 +62,8 @@ function App() {
       {pageSelector === 1 && (
         <div>
           <button type="button" onClick={onClick}>Return</button>
-          {/* <SaveRankings images={images} /> */}
+          <OtherRankings />
+          <SaveRankings images={images} />
           <DisplayRankings images={images} />
         </div>
       )}
