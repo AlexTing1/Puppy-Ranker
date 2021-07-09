@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import LoadImages from "./LoadImages";
-
+import UploadPhotos from "./UploadPhotos";
 import OtherRankings from "./OtherRankings";
 
 function App() {
@@ -43,26 +43,36 @@ function App() {
 
   const [pageSelector, setPageSelector] = useState(0);
 
-  function onClick() {
-    if (pageSelector === 0) {
-      setPageSelector(1);
-    } else {
-      setPageSelector(0);
-    }
+  function onClickRankings() {
+    setPageSelector(2);
   }
+
+  function onClickUpload() {
+    setPageSelector(0);
+  }
+
+  function onClickGame() {
+    setPageSelector(1);
+  }
+
   return (
     <div>
       {pageSelector === 0 && (
         <div>
-          <LoadImages images={images} setImages={setImages} />
-          <button type="button" onClick={onClick}>Current Rankings</button>
+          <UploadPhotos setImages={setImages} onClickGame={onClickGame} />
         </div>
       )}
       {pageSelector === 1 && (
         <div>
-          <button type="button" onClick={onClick}>Return</button>
+          <LoadImages images={images} setImages={setImages} />
+          <button type="button" onClick={onClickUpload}>Upload Photos</button>
+          <button type="button" onClick={onClickRankings}>Current Rankings</button>
+        </div>
+      )}
+      {pageSelector === 2 && (
+        <div>
+          <button type="button" onClick={onClickGame}>Return</button>
           <OtherRankings images={images} />
-
         </div>
       )}
     </div>
