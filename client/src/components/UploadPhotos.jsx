@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import css from "./style.css";
 
 function UploadPhotos({ images, setImages, onClickGame }) {
   const [newImages, setNewImages] = useState([]);
@@ -34,15 +35,15 @@ function UploadPhotos({ images, setImages, onClickGame }) {
   });
 
   return (
-    <div>
+    <div className={css.centered}>
       <form action="/action_page.php">
         <input type="file" id="myFile" accept="image/*" name="image" onChange={loadFile} />
         {newImages.map((image, index) => (
           <img id="output" width="300" src={image.url} alt={index} />
         ))}
       </form>
-      <button type="button" onClick={onClickSubmit}>Submit</button>
-      <button type="button" onClick={onClickDefault}>Default</button>
+      <button type="button" className={css.myButton} onClick={onClickSubmit}>Submit</button>
+      <button type="button" className={css.myButton} onClick={onClickDefault}>Default</button>
     </div>
   );
 }

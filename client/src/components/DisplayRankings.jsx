@@ -12,19 +12,19 @@ function DisplayRankings({ images }) {
 
   return (
     <div>
-      <table>
-        <tr>
+      <table className={css.table}>
+        <tr className={css.tableHeader}>
           <th>Ranking</th>
           <th>Image</th>
           <th>Elo Rating</th>
         </tr>
         {sortedImages.map((image, index) => (
-          <tr>
+          <tr className={css.tableData}>
             <td>
               {index + 1}
             </td>
             <td>
-              <img objindex={image.index} index={index} className={css.img} src={image.url} rating={image.rating} alt="" />
+              <img objindex={image.index} index={index} className={css.displayImg} src={image.url} rating={image.rating} alt="" />
             </td>
             <td>{image.rating}</td>
           </tr>

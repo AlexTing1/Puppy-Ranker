@@ -3,6 +3,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import DisplayRankings from "./DisplayRankings";
 import SaveRankings from "./SaveRankings";
+import css from "./style.css";
 
 function OtherRankings({ images }) {
   const [rankingNames, setRankingNames] = useState([]);
@@ -38,14 +39,14 @@ function OtherRankings({ images }) {
 
   return (
     <div>
-      <button type="button" onClick={onButtonClick}>Previous Rankings</button>
+      <button type="button" className={css.myButton} onClick={onButtonClick}>Previous Rankings</button>
       {displayNameCounter === 1 && (rankingNames.map((image) => (
         <div>
           <span onClick={onNameClick} >{image.name}</span>
         </div>
       )))}
       {displayNameCounter === 1 && (
-        <button type="button" onClick={returnCurrentRankingsClick}>Current Rankings</button>
+        <button type="button" className={css.myButton} onClick={returnCurrentRankingsClick}>Current Rankings</button>
       )}
       <SaveRankings images={images} />
       <DisplayRankings images={displayImages} />

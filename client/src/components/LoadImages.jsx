@@ -39,15 +39,13 @@ function LoadImages({ images, setImages }) {
       temp[ratingNotSelected.index].rating = newRatings[1];
     }
     setImages(temp);
-    console.log(images);
     setSelectArray(randomSelector(temp));
   }
 
-
   return (
     <div>
-      {selectArray.map((image, index) => (
-        <img objindex={image.index} index={index} className={css.img} src={image.url} rating={image.rating} onClick={onClick} alt="" />
+      {selectArray.map((image) => (
+        <img objindex={image.index} className={css.img} src={image.url} rating={image.rating} onClick={onClick} alt="" />
       ))}
     </div>
   );

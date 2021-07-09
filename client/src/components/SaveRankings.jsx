@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
+import css from "./style.css";
 
 function SaveRankings({ images }) {
   const [tracker, setTracker] = useState(0);
@@ -26,11 +27,11 @@ function SaveRankings({ images }) {
 
   return (
     <div>
-      <button type="button" onClick={changeTracker}>Save Current Rankings</button>
+      <button type="button" className={css.myButton} onClick={changeTracker}>Save Current Rankings</button>
       {tracker === 1 && (
         <div>
           <input type="text" onChange={onChange} />
-          <button type="button" onClick={onClick}>Submit</button>
+          <button type="button" className={css.myButton} onClick={onClick}>Submit</button>
         </div>
       )}
     </div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import LoadImages from "./LoadImages";
 import UploadPhotos from "./UploadPhotos";
 import OtherRankings from "./OtherRankings";
+import css from "./style.css";
 
 function App() {
   const [images, setImages] = useState([
@@ -57,21 +58,24 @@ function App() {
 
   return (
     <div>
+      <h1 className={css.header}>
+        Doggy Battle
+      </h1>
       {pageSelector === 0 && (
         <div>
           <UploadPhotos setImages={setImages} onClickGame={onClickGame} />
         </div>
       )}
       {pageSelector === 1 && (
-        <div>
+        <div className={css.centeredBattle}>
           <LoadImages images={images} setImages={setImages} />
-          <button type="button" onClick={onClickUpload}>Upload Photos</button>
-          <button type="button" onClick={onClickRankings}>Current Rankings</button>
+          <button type="button" className={css.myButton} onClick={onClickUpload}>Upload Photos</button>
+          <button type="button" className={css.myButton} onClick={onClickRankings}>Current Rankings</button>
         </div>
       )}
       {pageSelector === 2 && (
-        <div>
-          <button type="button" onClick={onClickGame}>Return</button>
+        <div className={css.centeredScoreboard}>
+          <button type="button" className={css.myButton} onClick={onClickGame}>Return</button>
           <OtherRankings images={images} />
         </div>
       )}
