@@ -80,7 +80,6 @@
   font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
-<<<<<<< HEAD
 .nav{
   display:flex;
   justify-content: space-around;
@@ -104,10 +103,3 @@
   height: 100px;
   cursor:pointer;
 }
-=======
-.previousText {
-  font-size: 20px;
-  color: white;
-  cursor:pointer;
-}
->>>>>>> de017bcaf558ac5c4819bf86a3c0149cd618247d

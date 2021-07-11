@@ -1,14 +1,5 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-=======
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-} from "react-router-dom";
->>>>>>> de017bcaf558ac5c4819bf86a3c0149cd618247d
 import LoadImages from "./LoadImages";
 import UploadPhotos from "./UploadPhotos";
 import OtherRankings from "./OtherRankings";
