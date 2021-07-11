@@ -42,7 +42,7 @@ function OtherRankings({ images }) {
       <button type="button" className={css.myButton} onClick={onButtonClick}>Previous Rankings</button>
       {displayNameCounter === 1 && (rankingNames.map((image) => (
         <div>
-          <span onClick={onNameClick} >{image.name}</span>
+          <span onClick={onNameClick} className={css.previousText} >{image.name}</span>
         </div>
       )))}
       {displayNameCounter === 1 && (

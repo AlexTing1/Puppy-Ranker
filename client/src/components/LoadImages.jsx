@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import css from "./style.css";
 import helpers from "./helper-functions";
@@ -15,7 +15,7 @@ function LoadImages({ images, setImages }) {
     resultArray.push(array[randIndex2]);
     return resultArray;
   }
-
+  console.log("this is images in LoadImages: ", images);
   const [selectArray, setSelectArray] = useState(randomSelector(images));
 
   function onClick(event) {
@@ -27,7 +27,6 @@ function LoadImages({ images, setImages }) {
       const ratingSelected = selectArray[0];
       const ratingNotSelected = selectArray[1];
       const newRatings = helpers.algo(ratingSelected.rating, ratingNotSelected.rating);
-      console.log(newRatings);
       temp[ratingSelected.index].rating = newRatings[0];
       temp[ratingNotSelected.index].rating = newRatings[1];
     } else {

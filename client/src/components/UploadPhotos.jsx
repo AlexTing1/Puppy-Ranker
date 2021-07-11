@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from "react-router-dom";
 import PropTypes from "prop-types";
 import css from "./style.css";
+import LoadImages from "./LoadImages";
 
 function UploadPhotos({ images, setImages, onClickGame }) {
   const [newImages, setNewImages] = useState([]);
@@ -22,7 +29,7 @@ function UploadPhotos({ images, setImages, onClickGame }) {
 
   function onClickSubmit() {
     setImages(newImages);
-    onClickGame();
+    // onClickGame();
   }
 
   function onClickDefault() {
@@ -35,16 +42,31 @@ function UploadPhotos({ images, setImages, onClickGame }) {
   });
 
   return (
-    <div className={css.centered}>
-      <form action="/action_page.php">
-        <input type="file" id="myFile" accept="image/*" name="image" onChange={loadFile} />
-        {newImages.map((image, index) => (
-          <img id="output" width="300" src={image.url} alt={index} />
-        ))}
-      </form>
-      <button type="button" className={css.myButton} onClick={onClickSubmit}>Submit</button>
-      <button type="button" className={css.myButton} onClick={onClickDefault}>Default</button>
-    </div>
+    <Router>
+      <div className={css.centered}>
+        <form action="/action_page.php">
+          <input type="file" id="myFile" accept="image/*" name="image" onChange={loadFile} />
+          {newImages.map((image, index) => (
+            <img id="output" width="300" src={image.url} alt={index} />
+          ))}
+        </form>
+        <Link to="/loadimages">
+          <button type="button" className={css.myButton} onClick={onClickSubmit}>Submit</button>
+        </Link>
+        <Link to="/loadimagesdefault">
+          <button type="button" className={css.myButton}>Default</button>
+        </Link>
+        <Switch>
+          <Route path="/loadimages">
+            <LoadImages images={images} setImages={setImages} />
+          </Route>
+          <Route path="/loadimagesdefault">
+            <LoadImages images={defaultImages} setImages={setImages} />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+
   );
 }
 
