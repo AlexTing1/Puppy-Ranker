@@ -79,3 +79,27 @@
   font-size: 25px;
   font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
+
+.nav{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background:grey;
+  color: white;
+}
+
+.navLinks{
+  width:50%;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style:none;
+
+}
+
+.logoImg {
+  width: 100px;
+  height: 100px;
+  cursor:pointer;
+}

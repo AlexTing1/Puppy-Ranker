@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoadImages from "./LoadImages";
 import UploadPhotos from "./UploadPhotos";
 import OtherRankings from "./OtherRankings";
+import Nav from "./Nav";
 import css from "./style.css";
+import About from "./About";
+import Home from "./Home";
 
 function App() {
   const [images, setImages] = useState([
@@ -52,12 +56,30 @@ function App() {
     setPageSelector(0);
   }
 
-  function onClickGame() {
-    setPageSelector(1);
-  }
-
   return (
-    <div>
+    <Router>
+      <div>
+        <Nav />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+          <Route
+            path="/upload"
+            render={() => <UploadPhotos setImages={setImages} />}
+          />
+          <Route
+            path="/game"
+            render={() => <LoadImages images={images} setImages={setImages} />}
+          />
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+
+{ /* <div>
       <h1 className={css.header}>
         Doggy Battle
       </h1>
@@ -79,8 +101,4 @@ function App() {
           <OtherRankings images={images} />
         </div>
       )}
-    </div>
-  );
-}
-
-export default App;
+    </div> */ }

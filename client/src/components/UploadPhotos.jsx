@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import css from "./style.css";
 
-function UploadPhotos({ images, setImages, onClickGame }) {
+function UploadPhotos({ images, setImages }) {
   const [newImages, setNewImages] = useState([]);
   const defaultImages = images;
   function loadFile(event) {
@@ -22,11 +23,6 @@ function UploadPhotos({ images, setImages, onClickGame }) {
 
   function onClickSubmit() {
     setImages(newImages);
-    onClickGame();
-  }
-
-  function onClickDefault() {
-    onClickGame();
   }
 
   useEffect(() => {
@@ -43,14 +39,16 @@ function UploadPhotos({ images, setImages, onClickGame }) {
         ))}
       </form>
       <button type="button" className={css.myButton} onClick={onClickSubmit}>Submit</button>
-      <button type="button" className={css.myButton} onClick={onClickDefault}>Default</button>
+      <Link to="/game">
+        <button type="button" className={css.myButton}>Default</button>
+      </Link>
+
     </div>
   );
 }
 
 UploadPhotos.propTypes = {
   setImages: PropTypes.func.isRequired,
-  onClickGame: PropTypes.func.isRequired,
   images: PropTypes.arrayOf(PropTypes.shape({
     url: PropTypes.string.isRequired,
     index: PropTypes.number.isRequired,
