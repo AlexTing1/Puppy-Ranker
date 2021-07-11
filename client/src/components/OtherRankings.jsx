@@ -38,7 +38,7 @@ function OtherRankings({ images }) {
   }, [rankingNames]);
 
   return (
-    <div>
+    <div className={css.centeredScoreboard}>
       <button type="button" className={css.myButton} onClick={onButtonClick}>Previous Rankings</button>
       {displayNameCounter === 1 && (rankingNames.map((image) => (
         <div>

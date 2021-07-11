@@ -4,9 +4,9 @@ import LoadImages from "./LoadImages";
 import UploadPhotos from "./UploadPhotos";
 import OtherRankings from "./OtherRankings";
 import Nav from "./Nav";
-import css from "./style.css";
 import About from "./About";
 import Home from "./Home";
+import HistoricalRankings from "./HistoricalRankings";
 
 function App() {
   const [images, setImages] = useState([
@@ -70,6 +70,14 @@ function App() {
           <Route
             path="/game"
             render={() => <LoadImages images={images} setImages={setImages} />}
+          />
+          <Route
+            path="/rankings"
+            render={() => <OtherRankings images={images} />}
+          />
+          <Route
+            path="/historicalrankings"
+            render={() => <HistoricalRankings />}
           />
         </Switch>
       </div>

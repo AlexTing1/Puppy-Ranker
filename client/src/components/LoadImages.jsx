@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import css from "./style.css";
 import helpers from "./helper-functions";
 
@@ -42,10 +43,17 @@ function LoadImages({ images, setImages }) {
   }
 
   return (
-    <div>
+    <div className={css.centeredBattle}>
       {selectArray.map((image) => (
         <img objindex={image.index} className={css.img} src={image.url} rating={image.rating} onClick={onClick} alt="" />
       ))}
+      <br />
+      <Link to="/upload">
+        <button type="button" className={css.myButton}>Upload Photos</button>
+      </Link>
+      <Link to="/rankings">
+        <button type="button" className={css.myButton}>Current Rankings</button>
+      </Link>
     </div>
   );
 }
