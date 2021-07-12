@@ -7,6 +7,7 @@ import Nav from "./Nav";
 import About from "./About";
 import Home from "./Home";
 import HistoricalRankings from "./HistoricalRankings";
+import Test from "./Test";
 
 function App() {
   const [images, setImages] = useState([
@@ -46,16 +47,6 @@ function App() {
       index: 6,
     }]);
 
-  const [pageSelector, setPageSelector] = useState(0);
-
-  function onClickRankings() {
-    setPageSelector(2);
-  }
-
-  function onClickUpload() {
-    setPageSelector(0);
-  }
-
   return (
     <Router>
       <div>
@@ -79,6 +70,7 @@ function App() {
             path="/historicalrankings"
             render={() => <HistoricalRankings />}
           />
+          <Route path="/test" render={() => <Test />} />
         </Switch>
       </div>
     </Router>

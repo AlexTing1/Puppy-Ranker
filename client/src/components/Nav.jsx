@@ -22,6 +22,11 @@ function Nav() {
             <button type="button" className={css.myButton}>Historical Rankings</button>
           </Link>
         </li>
+        <li>
+          <Link to="/test">
+          <button type="button" className={css.myButton}>Test</button>
+          </Link>
+        </li>
       </ul>
     </nav>
   );
