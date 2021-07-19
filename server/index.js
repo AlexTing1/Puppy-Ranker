@@ -5,7 +5,7 @@ const path = require("path");
 const mongoose = require("../database/index");
 
 const app = express();
-const port = 3000;
+const port = 4000;
 app.use(express.json());
 app.use(cors());
 
@@ -35,7 +35,7 @@ app.get("/rankings/:name", (req, res) => {
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console
-  console.log("Connected to server at port", 3000);
+  console.log("Connected to server at port", 4000);
 });
 
 module.exports = app;
