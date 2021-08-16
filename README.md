@@ -1,4 +1,5 @@
 # Puppy-Ranker
+![puppy_battles_logo](https://user-images.githubusercontent.com/24627529/129637966-ff66babe-f23c-4809-ac92-440cc7c780fb.png)
 
 This was a solo project where I created a website that would allow users to upload photos of puppies and rank them based on cuteness. Afterward, the users can view the rankings and MMR ranking of each puppy submitted into the system.
 
